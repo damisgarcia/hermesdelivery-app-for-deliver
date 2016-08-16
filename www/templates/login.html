@@ -1,0 +1,16 @@
+<ion-view view-title="Login">
+  <ion-header-bar class="bar-stable bar-royal">
+    <h1 class="title">Login</h1>
+  </ion-header-bar>
+  <ion-content padding="true" scroll="false" class="has-header">
+      <form ng-submit="login.submit($event)">
+          <ion-list>
+              <label class="item item-input">
+                <span class="input-label"><i class="icon ion-locked"></i></span>
+                  <input type="password" ng-model="login.access_key">
+              </label>
+          </ion-list>
+          <button type="submit" class="button button-royal button-block">Log in</button>
+      </form>
+  </ion-content>
+</ion-view>

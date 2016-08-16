@@ -1,0 +1,25 @@
+<ion-view view-title="Ordes">
+  <ion-header-bar class="bar-stable bar-royal">
+    <h1 class="title">Pedidos</h1>
+  </ion-header-bar>
+  <ion-content padding="true" scroll="true" class="has-header">
+    <div class="card" ng-repeat="order in orders.list" ui-sref="orders.show({id: order.id})">
+      <div class="item item-divider row">
+        <p class="col">
+          <i class="icon ion-record positive ng-hide" ng-show="order.status == 'enviado'"></i>
+          <i class="icon ion-record balanced ng-hide" ng-show="order.status == 'concluido'"></i>
+          <i class="icon ion-record assertive ng-hide" ng-show="order.status == 'cancelado'"></i>
+          <i class="icon ion-record energized ng-hide" ng-show="!order.status || order.status == 'pendente'"></i>
+          &nbsp;<small>{{ order.status || "Em Aguardo"}}</small>
+        </p>
+        <p class="col col-20">
+          {{order.created_at | timeAgo}}
+        </p>
+      </div>
+      <div class="item item-text-wrap">
+        <h2>{{order.cliente.nome}}</h2>
+        <p>{{order.address.street || order.cliente.rua}} , {{order.address.number || order.cliente.numero}} - {{order.address.neighborhood || order.cliente.bairro}}</p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
