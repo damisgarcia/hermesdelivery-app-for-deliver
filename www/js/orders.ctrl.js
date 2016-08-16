@@ -8,6 +8,8 @@ angular.module('starter').controller("OrdersCtrl", function($scope, $state, $tim
   Order.all(function(response){
     self.list = $Cache.save(response.data).data
     $timeout($ionicLoading.hide, 400)
+  },function(error){
+    $timeout($ionicLoading.hide, 400)
   })
 
   return this

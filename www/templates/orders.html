@@ -5,12 +5,12 @@
   <ion-content padding="true" scroll="true" class="has-header">
     <div class="card" ng-repeat="order in orders.list" ui-sref="orders.show({id: order.id})">
       <div class="item item-divider row">
-        <p class="col">
-          <i class="icon ion-record positive ng-hide" ng-show="order.status == 'enviado'"></i>
-          <i class="icon ion-record balanced ng-hide" ng-show="order.status == 'concluido'"></i>
-          <i class="icon ion-record assertive ng-hide" ng-show="order.status == 'cancelado'"></i>
-          <i class="icon ion-record energized ng-hide" ng-show="!order.status || order.status == 'pendente'"></i>
-          &nbsp;<small>{{ order.status || "Em Aguardo"}}</small>
+        <p class="col situation">
+          <i class="icon ion-record positive ng-hide" ng-show="order.situation == 'enviado'"></i>
+          <i class="icon ion-record balanced ng-hide" ng-show="order.situation == 'concluido'"></i>
+          <i class="icon ion-record assertive ng-hide" ng-show="order.situation == 'cancelado'"></i>
+          <i class="icon ion-record energized ng-hide" ng-show="!order.situation || order.situation == 'pendente'"></i>
+          &nbsp;<small>{{ order.situation || "Em Aguardo"}}</small>
         </p>
         <p class="col col-20">
           {{order.created_at | timeAgo}}

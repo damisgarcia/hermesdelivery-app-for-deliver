@@ -4,7 +4,7 @@ angular.module('starter').factory("DefaultHttpInteceptor", function($q, $locatio
       if(rejection.status == 401){
         $Cache.clear()
         $location.url("/login")
-        return $q.reject(rejection)
+        return rejection
       }
       return $q.reject(rejection)
     }

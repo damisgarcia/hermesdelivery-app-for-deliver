@@ -34,14 +34,12 @@
     <ion-pane>
       <ion-nav-view></ion-nav-view>
       <div class="tabs tabs-icon-top">
-        <a class="tab-item" ui-reload>
-          <i class="icon ion-refresh"></i>
-          Recarregar
-        </a>
-        <a class="tab-item" ui-sref="orders">
+        <span class="tab-item"></span>
+        <a class="tab-item" ui-sref="orders" ui-sref-opts="{ reload: true }">
           <i class="icon ion-ios-albums"></i>
           Pedidos
         </a>
+        <span class="tab-item"></span>
       </div>
     </ion-pane>
     <!-- <ion-pane>
