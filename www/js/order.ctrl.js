@@ -1,4 +1,4 @@
-angular.module('starter').controller("OrderCtrl", function($scope, $state, $stateParams, $filter, $Cache){
+angular.module('starter').controller("OrderCtrl", ['$scope', '$state', '$stateParams', '$filter', '$Cache',function($scope, $state, $stateParams, $filter, $Cache){
   var self = this
   var id = parseInt($stateParams.id)
 
@@ -9,4 +9,4 @@ angular.module('starter').controller("OrderCtrl", function($scope, $state, $stat
   console.log(self)
 
   return self
-})
+}])

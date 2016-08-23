@@ -45,5 +45,7 @@ angular.module('starter', ['ionic','yaru22.angular-timeago'])
     if(window.StatusBar) {
       StatusBar.styleDefault();
     }
+    // var bgGeo = window.BackgroundGeolocation
+    // console.log(bgGeo)
   });
 })

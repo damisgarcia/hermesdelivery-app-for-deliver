@@ -1,4 +1,4 @@
-angular.module('starter').directive("uiReload", function($state, $stateParams, $timeout, $ionicLoading){
+angular.module('starter').directive("uiReload", ['$state', '$stateParams', '$timeout', '$ionicLoading', function($state, $stateParams, $timeout, $ionicLoading){
   return{
     restrict: "A",
     link: function(scope, element, attrs){
@@ -11,4 +11,4 @@ angular.module('starter').directive("uiReload", function($state, $stateParams, $
       })
     }
   }
-})
+}])

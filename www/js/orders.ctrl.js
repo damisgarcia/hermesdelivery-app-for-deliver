@@ -1,4 +1,4 @@
-angular.module('starter').controller("OrdersCtrl", function($scope, $state, $timeout, $Cache, $ionicLoading, Order){
+angular.module('starter').controller("OrdersCtrl", ['$scope', '$state', '$timeout', '$Cache', '$ionicLoading', 'Order', function($scope, $state, $timeout, $Cache, $ionicLoading, Order){
   var self = this
 
   $ionicLoading.show({
@@ -13,4 +13,4 @@ angular.module('starter').controller("OrdersCtrl", function($scope, $state, $tim
   })
 
   return this
-})
+}])

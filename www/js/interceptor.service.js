@@ -1,4 +1,4 @@
-angular.module('starter').factory("DefaultHttpInteceptor", function($q, $location, $Cache){
+angular.module('starter').factory("DefaultHttpInteceptor", ['$q', '$location', '$Cache',function($q, $location, $Cache){
   return {
     'responseError': function(rejection) {
       if(rejection.status == 401){
@@ -9,4 +9,4 @@ angular.module('starter').factory("DefaultHttpInteceptor", function($q, $locatio
       return $q.reject(rejection)
     }
   }
-})
+}])
