@@ -2,3 +2,7 @@
 .situation{
   text-transform: capitalize;
 }
+
+.pane {
+  overflow-y: scroll;
+}
