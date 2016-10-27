@@ -6,7 +6,6 @@ angular.module('starter').controller("OrderCtrl", ['$scope', '$state', '$statePa
 
   self.total_pagamento = parseFloat(self.valor_total) + parseFloat(self.frete)
   self.total_pagamento -= self.total_pagamento * parseFloat(self.desconto)
-  console.log(self)
 
   return self
 }])
