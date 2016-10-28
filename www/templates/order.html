@@ -18,7 +18,7 @@
     <hr>
     <p>Frete <br> {{order.frete | currency: 'R$'}}</p>
     <p>Valor Total <br> {{order.valor_total | currency: 'R$'}}</p>
-    <p>Desconto <br>  - {{order.desconto | currency: 'R$'}}</p>
+    <p>Desconto <br> - {{ order.desconto | currency: 'R$'}}</p>
     <h3>Total a Pagar <br> {{ order.total_pagamento | currency: 'R$'}}</h3>
     <a ng-href="https://www.google.com.br/maps/place/{{order.cliente.endereco || order.address.street}}, {{order.cliente.numero || order.address.number}} - {{order.cliente.bairro || order.address.neighborhood }} Fortaleza" target="_blank" class="button button-calm button-block">VER NO MAPA</a>
     <div style="width:1px; height:3em;"></div>

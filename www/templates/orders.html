@@ -3,6 +3,7 @@
     <h1 class="title">Pedidos</h1>
   </ion-header-bar>
   <ion-content padding="true" scroll="true" class="has-header">
+    <ion-refresher pulling-text="Solte para atualizar..." on-refresh="orders.refresh()"></ion-refresher>
     <div class="card" ng-repeat="order in orders.list" ui-sref="orders.show({id: order.id})">
       <div class="item item-divider row">
         <p class="col situation">

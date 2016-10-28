@@ -29,14 +29,16 @@ angular.module('starter').factory("$backgroundGeolocation", ['$http', '$Cache',f
 
   return {
     call: function(){
-      backgroundGeolocation.configure(callbackFn, failureFn, {
-        desiredAccuracy: 10,
-        stationaryRadius: 20,
-        distanceFilter: 30,
-        interval: 5000
-      });
+      if(window.backgroundGeolocation){
+        backgroundGeolocation.configure(callbackFn, failureFn, {
+          desiredAccuracy: 10,
+          stationaryRadius: 20,
+          distanceFilter: 30,
+          interval: 5000
+        })
 
-      backgroundGeolocation.start()
+        backgroundGeolocation.start()
+      }
     }
   }
 }])

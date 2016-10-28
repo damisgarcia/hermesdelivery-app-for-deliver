@@ -1,16 +1,25 @@
 angular.module('starter').controller("OrdersCtrl", ['$scope', '$state', '$timeout', '$Cache', '$ionicLoading', 'Order', function($scope, $state, $timeout, $Cache, $ionicLoading, Order){
+  // @private
+  $load = function() {
+    $ionicLoading.show({
+      template: "Carregando"
+    })
+
+    Order.all(function(response){
+      self.list = $Cache.save(response.data).data
+      $timeout($ionicLoading.hide, 400)
+       $scope.$broadcast('scroll.refreshComplete')
+    },function(error){
+      $timeout($ionicLoading.hide, 400)
+       $scope.$broadcast('scroll.refreshComplete')
+    })
+  }
+  // @public
   var self = this
 
-  $ionicLoading.show({
-    template: "Carregando"
-  })
+  self.refresh = $load
 
-  Order.all(function(response){
-    self.list = $Cache.save(response.data).data
-    $timeout($ionicLoading.hide, 400)
-  },function(error){
-    $timeout($ionicLoading.hide, 400)
-  })
+  $load()
 
   return this
 }])

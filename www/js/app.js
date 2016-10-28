@@ -8,32 +8,33 @@ angular.module('starter', ['ionic','ngCordova','yaru22.angular-timeago'])
   // View Cache
   $ionicConfigProvider.views.maxCache(0)
 
-  $urlRouterProvider.otherwise('/orders')
-
   $stateProvider
   .state('orders', {
     url: '/orders',
-    templateUrl: '/templates/orders.html',
+    templateUrl: 'templates/orders.html',
     controller: "OrdersCtrl as orders"
   })
   .state('orders.show', {
     url: '/:id',
     views:{
       "@":{
-        templateUrl: '/templates/order.html',
+        templateUrl: 'templates/order.html',
         controller: "OrderCtrl as order"
       }
     }
   })
   .state('login', {
     url: '/login',
-    templateUrl: '/templates/login.html',
+    templateUrl: 'templates/login.html',
     controller: "LoginCtrl as login"
   });
 
+  // dont use otherwise
+  // $urlRouterProvider.otherwise('/orders')
+
   $httpProvider.interceptors.push('DefaultHttpInteceptor')
 })
-.run(function($ionicPlatform, $backgroundGeolocation) {
+.run(function($ionicPlatform, $backgroundGeolocation, $state) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -46,9 +47,13 @@ angular.module('starter', ['ionic','ngCordova','yaru22.angular-timeago'])
       cordova.plugins.Keyboard.disableScroll(true);
     }
 
-    if(window.StatusBar) {
-      StatusBar.backgroundColorByHexString("#886aea"); // Royal
+    if(window.StatusBar && cordova.platformId == 'android') {
+      // StatusBar.backgroundColorByHexString("#886aea"); // Royal
+      StatusBar.backgroundColorByHexString("#654db5");
     }
+
+    // use transitionTo with option
+    $state.transitionTo('orders');
 
     $backgroundGeolocation.call()
   });
